@@ -1,0 +1,69 @@
+/* 补充：toast、markdown 阅读视图、看板、时间轴 */
+.toast-box { position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 8px; z-index: 99; }
+.toast { background: var(--card); border: 1px solid var(--green); color: var(--green);
+  border-radius: 10px; padding: 10px 16px; font-size: 13px; box-shadow: var(--shadow); }
+.toast.err { border-color: var(--red); color: var(--red); }
+
+input, select, textarea {
+  background: var(--card); color: var(--text); border: 1px solid var(--line);
+  border-radius: 10px; padding: 7px 10px; font-size: 13px; font-family: inherit;
+}
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); }
+.inline-form { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 10px 0; }
+.inline-form input, .inline-form select { min-width: 0; }
+
+/* markdown 阅读视图 */
+.md-view { line-height: 1.8; font-size: 14.5px; }
+.md-view h2, .md-view h3, .md-view h4 { margin: 1.2em 0 .5em; }
+.md-view p { margin: .6em 0; }
+.md-view ul { padding-left: 1.4em; }
+.md-view blockquote { border-left: 3px solid var(--accent); margin: .6em 0; padding: .2em 1em;
+  color: var(--muted); background: var(--card-2); border-radius: 0 8px 8px 0; }
+.md-view pre { background: var(--card-2); border: 1px solid var(--line); border-radius: 10px;
+  padding: 12px; overflow-x: auto; font-size: 13px; }
+.md-view code { background: var(--card-2); border-radius: 4px; padding: 1px 5px; font-size: .92em; }
+.md-view pre code { background: none; padding: 0; }
+.md-view table { border-collapse: collapse; margin: .8em 0; }
+.md-view td { border: 1px solid var(--line); padding: 5px 10px; }
+.md-view .md-img { max-width: 100%; border-radius: 10px; margin: .5em 0; }
+
+/* 时间轴 */
+.timeline { position: relative; padding-left: 18px; }
+.timeline::before { content: ''; position: absolute; left: 5px; top: 6px; bottom: 6px;
+  width: 2px; background: var(--line); }
+.tl-item { position: relative; padding: 6px 0 6px 14px; }
+.tl-item::before { content: ''; position: absolute; left: -17px; top: 13px; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--accent); }
+.tl-item.free::before { background: var(--muted); }
+.tl-time { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.tl-title { font-size: 13.5px; }
+
+/* 看板 */
+.board { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 1fr);
+  gap: 12px; overflow-x: auto; padding-bottom: 8px; }
+.board-col-title { font-size: 12.5px; color: var(--muted); margin-bottom: 8px; display: flex; justify-content: space-between; }
+.board-card { background: var(--card-2); border: 1px solid var(--line); border-radius: 10px;
+  padding: 10px 12px; margin-bottom: 8px; font-size: 13px; }
+.board-card b { display: block; margin-bottom: 2px; }
+
+/* 单词复习卡 */
+.flash-word { font-size: 40px; text-align: center; padding: 40px 0 12px; font-weight: 700; letter-spacing: .5px; }
+.flash-meaning { text-align: center; color: var(--muted); min-height: 28px; }
+.grade-row { display: flex; gap: 10px; justify-content: center; margin-top: 26px; }
+
+.stat-row { display: flex; gap: 14px; flex-wrap: wrap; }
+.stat { background: var(--card-2); border: 1px solid var(--line); border-radius: 12px;
+  padding: 10px 18px; text-align: center; min-width: 96px; }
+.stat b { display: block; font-size: 22px; }
+.stat span { color: var(--muted); font-size: 12px; }
+
+.habit { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.habit:last-child { border-bottom: none; }
+.streak { font-size: 12.5px; color: var(--amber); white-space: nowrap; }
+
+.check-item { display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.check-item:last-child { border-bottom: none; }
+.check-item.done .t { text-decoration: line-through; color: var(--muted); }
+.tick { width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--line);
+  background: none; cursor: pointer; flex: none; line-height: 1; color: transparent; }
+.tick.on { background: var(--green); border-color: var(--green); color: #fff; }

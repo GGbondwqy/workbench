@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>学途工作台</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">🎓 <span>学途工作台</span></div>
+      <nav id="nav" class="nav"></nav>
+      <div class="sidebar-foot" id="side-foot">v0.1 · Phase 0</div>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <div class="today" id="today"></div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="theme-toggle" title="切换浅色/深色">🌙</button>
+        </div>
+      </header>
+      <main id="view" class="view"></main>
+    </div>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+/* 布局：侧栏 + 顶栏 + 主区 */
+
+.app {
+  display: grid;
+  grid-template-columns: 216px 1fr;
+  min-height: 100vh;
+}
+
+/* ---- 侧栏 ---- */
+.sidebar {
+  border-right: 1px solid var(--line);
+  background: var(--card);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.brand {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 20px 18px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nav { flex: 1; padding: 4px 10px; overflow-y: auto; }
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  margin: 2px 0;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 13.5px;
+  text-decoration: none;
+}
+.nav a:hover { background: var(--card-2); text-decoration: none; }
+.nav a.active {
+  background: var(--accent-weak);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+.nav .tag {
+  margin-left: auto;
+  font-size: 10.5px;
+  color: var(--muted);
+  background: var(--card-2);
+  border: 1px solid var(--line);
+  padding: 0 6px;
+  border-radius: 999px;
+}
+.sidebar-foot {
+  padding: 14px 18px;
+  color: var(--muted);
+  font-size: 11.5px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---- 顶栏 ---- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 26px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.today { font-size: 14px; font-weight: 600; }
+.today small { color: var(--muted); font-weight: 400; margin-left: 10px; }
+.topbar-actions { display: flex; gap: 8px; }
+
+/* ---- 主区 ---- */
+.view { padding: 22px 26px 40px; max-width: 1080px; }
+
+.page-head { margin-bottom: 18px; }
+.page-head h1 { font-size: 20px; margin: 0 0 4px; }
+.page-head p { color: var(--muted); margin: 0; font-size: 13px; }
+
+.grid { display: grid; gap: 16px; }
+.grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ---- 响应式 ---- */
+@media (max-width: 900px) {
+  .app { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; flex-direction: row; align-items: center; flex-wrap: wrap; }
+  .brand { padding: 12px 14px; }
+  .nav { display: flex; flex-wrap: wrap; padding: 6px; }
+  .nav a { padding: 7px 10px; }
+  .nav .tag { display: none; }
+  .sidebar-foot { display: none; }
+  .grid.cols-2, .grid.cols-3 { grid-template-columns: 1fr; }
+  .view { padding: 16px 14px 32px; }
+}
